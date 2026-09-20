@@ -88,6 +88,11 @@ const VIDEO_RANGE_TYPE = {
   'HDR10+': 'HDR10Plus',
   HDR10: 'HDR10',
   DV: 'DOVI',
+  // Profile variants are still Dolby Vision as far as Jellyfin's video range
+  // is concerned; the profile only affects player compatibility.
+  'DV P5': 'DOVI',
+  'DV P7': 'DOVI',
+  'DV P8': 'DOVI',
   HDR: 'HDR10',
   HLG: 'HLG',
   'HDR+DV': 'DOVI',

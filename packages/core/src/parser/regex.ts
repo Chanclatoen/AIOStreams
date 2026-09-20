@@ -89,6 +89,20 @@ export const PARSE_REGEX: PARSE_REGEX = {
     ),
     HLG: createRegex('hlg'),
     DV: createRegex('do?(lby)?[ .\\-_]?vi?(sion)?(?:[ .\\-_]?atmos)?|dv'),
+    // Dolby Vision profiles. Profile 7 (dual-layer, FEL/MEL) is the important
+    // one: many players - notably ExoPlayer-based Android TV devices - cannot
+    // play it, while profiles 5 and 8 are widely supported. Releases advertise
+    // it either explicitly ("DV P7", "Profile 7") or via the layer markers
+    // "FEL" / "BL+EL".
+    'DV P5': createRegex(
+      '(?:do?(?:lby)?[ .\\-_]?vi?(?:sion)?|dv|dovi)[ .\\-_]?p(?:rofile)?[ .\\-_]?5|dvp5'
+    ),
+    'DV P7': createRegex(
+      '(?:do?(?:lby)?[ .\\-_]?vi?(?:sion)?|dv|dovi)[ .\\-_]?p(?:rofile)?[ .\\-_]?7|dvp7|fel|bl[ .\\-_]?\\+[ .\\-_]?el'
+    ),
+    'DV P8': createRegex(
+      '(?:do?(?:lby)?[ .\\-_]?vi?(?:sion)?|dv|dovi)[ .\\-_]?p(?:rofile)?[ .\\-_]?8|dvp8'
+    ),
     '3D': createRegex('(bd)?(3|three)[ .\\-_]?(d(imension)?(al)?)'),
     IMAX: createRegex('imax'),
     AI: createRegex('ai|ai(enhanced?|re[ .\\-_]?graded?)'),
